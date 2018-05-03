@@ -4,19 +4,18 @@ Feature: Checking Radio button and check box in website
 Background:
 Given user in demoqa website
 @tag1
-Scenario: Verify the marital status
+Scenario: Verifying the marital status
 
-When user select radio button
-Then user verifies the clicked option
+When user selecting the option as single 
+Then user has to verifing the option as single
 
 @tag2
-Scenario: Verify the hobby
+Scenario: Verifying the hobby 
 
-When user select multiple check box
-Then user verifies the selected check boxes
-
+When user selecting the option as Dance
+Then user has to verifying the option as Dance
 @tag3
-Scenario: Verify the country
+Scenario: Verifying the country
 
-When user select the afghanistan
-Then user verifies the dropped option
+When user is on default country as Afghanistan
+Then user has to verifying the country as Afghanistan

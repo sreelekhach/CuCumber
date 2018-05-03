@@ -1,11 +1,6 @@
 package org.test.Cucumber;
 
-
-
-
-
-
-
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -28,47 +23,53 @@ public class ProjectCucu {
 		
 	}
 
-	@When("^user select radio button$")
-	public void user_select_radio_button() throws Throwable {
+	@When("^user selecting the option as single$")
+	public void user_selecting_the_option_as_single() throws Throwable {
 		WebElement e=d.findElement(By.xpath("//input[@value='single']"));
 		e.click();
+		
 		   
 	}
 
-	@Then("^user verifies the clicked option$")
-	public void user_verifies_the_clicked_option() throws Throwable {
+	@Then("^user has to verifing the option as single$")
+	public void user_has_to_verifing_the_option_as_single() throws Throwable{
 		WebElement e=d.findElement(By.xpath("//input[@value='single']"));
-		boolean s=e.isSelected();
-		System.out.println(s);
+		//boolean s=e.isSelected();
+		//System.out.println(s);
+		Assert.assertEquals("single", e.getAttribute("value"));
 			
 		}
-	@When("^user select multiple check box$")
-	public void user_select_multiple_check_box() throws Throwable {
+	@When("^user selecting the option as Dance$")
+	public void user_selecting_the_option_as_Dance() throws Throwable  {
 		WebElement hobb = d.findElement(By.xpath("//input[@value='dance']"));
 		hobb.click();
 	   
 	}
 
-	@Then("^user verifies the selected check boxes$")
-	public void user_verifies_the_selected_check_boxes() throws Throwable {
+	@Then("^user has to verifying the option as Dance$")
+	public void user_has_to_verifying_the_option_as_Dance() throws Throwable {
 		WebElement hobb = d.findElement(By.xpath("//input[@value='dance']"));
-		boolean s1=hobb.isSelected();
-		System.out.println(s1);
-	    
+		//boolean s1=hobb.isSelected();
+		//System.out.println(s1);
+		Assert.assertEquals("dance", hobb.getAttribute("value"));
 	}
 
-	@When("^user select the afghanistan$")
-	public void user_select_the_afghanistan() throws Throwable {
+	@When("^user is on default country as Afghanistan$")
+	public void user_is_on_default_country_as_Afghanistan() throws Throwable  {
 		WebElement con = d.findElement(By.id("dropdown_7"));
 	   Select a = new Select(con);
 	   a.selectByVisibleText("Afghanistan");
 	}
 
-	@Then("^user verifies the dropped option$")
-	public void user_verifies_the_dropped_option() throws Throwable {
+	@Then("^user has to verifying the country as Afghanistan$")
+	public void user_has_to_verifying_the_country_as_Afghanistan() throws Throwable {
 		WebElement con = d.findElement(By.xpath("//*[@id='dropdown_7']/option[1]"));
-		boolean s2=con.isSelected();
-		System.out.println(s2);
+		//boolean s2=con.isSelected();
+		//System.out.println(s2);
+		Assert.assertEquals("Afghanistan", con.getAttribute("value"));
+		
+		
+		
 	    
 	}
 
